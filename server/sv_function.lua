@@ -15,7 +15,9 @@ function Server:Harvest(source)
                 TriggerClientEvent('esx:showNotification', source, '~r~Inventaire complet.')
             else
                 xPlayer.addInventoryItem('bitcoin', 1)
-                Server:toDiscord(_ServerConfig.param.name, xPlayer.getName()..' a miné x1 bitcoin', _ServerConfig.param.color)
+                if (enableLogs) then
+                    Server:toDiscord(_ServerConfig.param.name, xPlayer.getName()..' a miné x1 bitcoin', _ServerConfig.param.color)
+                end
                 Server:Harvest(source)
             end
         end
