@@ -24,7 +24,9 @@ AddEventHandler(((_Config.Prefix..'%s'):format(_Config.Events.startHarvest)), fu
             end
         else
             DropPlayer(_src, 'Bitcoin : Triche de récolte détectée.')
-            Server:toDiscord(_ServerConfig.param.name, xPlayer.getName()..' a été expulsé pour tricherie ! (récolte)', _ServerConfig.param.colorAC)
+            if (enableLogs) then 
+                Server:toDiscord(_ServerConfig.param.name, xPlayer.getName()..' a été expulsé pour tricherie ! (récolte)', _ServerConfig.param.colorAC)
+            end
         end
     end
 end)
@@ -54,11 +56,15 @@ AddEventHandler(((_Config.Prefix..'%s'):format(_Config.Events.sellBitcoin)), fun
                 xPlayer.addMoney(price)
                 TriggerClientEvent('esx:showNotification', _src, ('~y~Bitcoin~s~ \nVous avez vendu %s ~b~bitcoin~s~'):format(count))
                 TriggerClientEvent('esx:showNotification', _src, ('~g~+%s $~s~'):format(price))
-                Server:toDiscord(_ServerConfig.param.name, (xPlayer.getName()..' a vendu %s bitcoin pour %s $ !'):format(count, price), _ServerConfig.param.colorSell)
+                if (enableLogs) then
+                    Server:toDiscord(_ServerConfig.param.name, (xPlayer.getName()..' a vendu %s bitcoin pour %s $ !'):format(count, price), _ServerConfig.param.colorSell)
+                end
             end
         else
             DropPlayer(_src, 'Bitcoin : Triche de revente détectée.')
-            Server:toDiscord(_ServerConfig.param.name, xPlayer.getName()..' a été expulsé pour tricherie ! (revente)', _ServerConfig.param.colorAC)
+            if (enableLogs) then
+                Server:toDiscord(_ServerConfig.param.name, xPlayer.getName()..' a été expulsé pour tricherie ! (revente)', _ServerConfig.param.colorAC)
+            end
         end
     end
 end)
