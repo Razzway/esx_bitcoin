@@ -2,7 +2,7 @@
 - This is a simple script to recolt & sell bitcoin
 - Optimized 0.00 ms (out of use)
 - All actions are logged (discord wehbook)
-- Everything is configurable 
+- Everything is configurable (price, blips..)
 - Secure against modders
 
 ## Preview
