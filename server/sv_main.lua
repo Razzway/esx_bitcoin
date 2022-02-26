@@ -51,7 +51,7 @@ AddEventHandler(((_Config.Prefix..'%s'):format(_Config.Events.sellBitcoin)), fun
                 TriggerClientEvent('esx:showNotification', _src, '~r~Vous n\'avez pas autant de bitcoin à vendre.')
             else
                 xPlayer.removeInventoryItem('bitcoin', count)
-                xPlayer.addAccountMoney('cash', price)
+                xPlayer.addMoney(price)
                 TriggerClientEvent('esx:showNotification', _src, ('~y~Bitcoin~s~ \nVous avez vendu %s ~b~bitcoin~s~'):format(count))
                 TriggerClientEvent('esx:showNotification', _src, ('~g~+%s $~s~'):format(price))
                 Server:toDiscord(_ServerConfig.param.name, (xPlayer.getName()..' a vendu %s bitcoin pour %s $ !'):format(count, price), _ServerConfig.param.colorSell)
