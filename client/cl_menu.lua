@@ -17,11 +17,11 @@ function Client:openSellMenu(bitcoin)
             RageUI.Button('~c~→~s~ Vendre du bitcoin', nil, {RightLabel = quantity.bitcoin}, true, {
                 onSelected = function()
                     local qty = Client:input('Indiquez le nombre que vous souhaitez vendre :', '', 20)
-                    if qty ~= '' then
+                    if qty ~= '' and tonumber(qty) ~= nil then
                         quantity.bitcoin = qty
                         indicator = true
                     else
-                        ESX.ShowNotification('~r~Il semblerait que vous n\'avez entré aucune valeur.')
+                        ESX.ShowNotification('~r~Il semblerait que vous n\'avez entré aucune valeur. Assurez vous qu\'il s\'agisse bel et bien d\'un chiffre/nombre.')
                     end
                 end
             })
