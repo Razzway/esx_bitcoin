@@ -16,7 +16,7 @@ function Client:openSellMenu(bitcoin)
             RageUI.Line()
             RageUI.Button('~c~→~s~ Vendre du bitcoin', nil, {RightLabel = quantity.bitcoin}, true, {
                 onSelected = function()
-                    local qty = Client:input('Indiquez le nombre que vous souhaitez vendre :', '', 20)
+                    local qty = Client:input('Indiquez le nombre que vous souhaitez vendre :', '', 2)
                     if qty ~= '' and tonumber(qty) ~= nil then
                         quantity.bitcoin = qty
                         indicator = true
